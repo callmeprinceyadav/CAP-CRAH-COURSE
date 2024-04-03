@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Schedule</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: auto repeat(5, 1fr);
+      grid-template-rows: auto;
+      gap: 1px;
+    }
+
+    .cell {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+    }
+
+    .time {
+      background-color: #ffd700;
+      font-weight: bold;
+    }
+
+    .subject {
+      background-color: #add8e6;
+    }
+
+    .activity {
+      background-color: #90ee90;
+    }
+
+    .break {
+      background-color: #f2f2f2;
+    }
+
+    /* Different mixed colors */
+    .cell:nth-child(6n+2) { background-color: #ffcccc; } /* Monday */
+    .cell:nth-child(6n+3) { background-color: #ccffcc; } /* Tuesday */
+    .cell:nth-child(6n+4) { background-color: #ccccff; } /* Wednesday */
+    .cell:nth-child(6n+5) { background-color: #ffffcc; } /* Thursday */
+    .cell:nth-child(6n+6) { background-color: #ffccff; } /* Friday */
+  </style>
+</head>
+<body>
+
+<h2 style="text-align: center;">Weekly Schedule</h2>
+
+<div class="container">
+  <div class="cell"></div>
+  <div class="cell">Monday</div>
+  <div class="cell">Tuesday</div>
+  <div class="cell">Wednesday</div>
+  <div class="cell">Thursday</div>
+  <div class="cell">Friday</div>
+
+  <div class="cell time">8:00 AM </div>
+  <div class="cell subject">Maths</div>
+  <div class="cell subject">English</div>
+  <div class="cell activity">PT</div>
+  <div class="cell subject">Science</div>
+  <div class="cell subject">Art</div>
+
+  <div class="cell time">9:00 AM </div>
+  <div class="cell subject">English</div>
+  <div class="cell subject">Maths</div>
+  <div class="cell subject">Social Studies</div>
+  <div class="cell subject">Music</div>
+  <div class="cell activity">Exams</div>
+
+  <div class="cell time">10:00 AM</div>
+  <div class="cell subject">Science</div>
+  <div class="cell break">Break</div>
+  <div class="cell subject">Maths</div>
+  <div class="cell subject">English</div>
+  <div class="cell subject">Library</div>
+
+  <div class="cell time">11:00 AM</div>
+  <div class="cell subject">Art</div>
+  <div class="cell subject">Science</div>
+  <div class="cell break">Break</div>
+  <div class="cell subject">Maths</div>
+  <div class="cell subject">English</div>
+
+  
+  <div class="cell time">12:00 PM</div>
+  
+  <div class="cell subject">English</div>
+  <div class="cell subject">English</div>
+  <div class="cell activity">PT</div>
+  <div class="cell subject">Science</div>
+  <div class="cell subject">Break</div>
+
+  <div class="cell time">1:00 PM</div>
+  <div class="cell subject">Art</div>
+  <div class="cell subject">Music</div>
+  <div class="cell break">Break</div>
+  <div class="cell subject">Maths</div>
+  <div class="cell subject">English</div>
+
+  <div class="cell time">2:00 PM</div>
+  
+  <div class="cell subject">Maths</div>
+  <div class="cell subject">English</div>
+  <div class="cell subject">Hindi</div>
+  <div class="cell subject">Break</div>
+  <div class="cell subject">Social Studies</div>
+  
+
+  <div class="cell subject">Notes :</div>
+
+  
+
+
+</div>
+
+</body>
+</html>
