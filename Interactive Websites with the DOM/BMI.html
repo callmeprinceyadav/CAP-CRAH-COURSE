@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI CHECK</title>
+    <style>
+        *{
+            font-size: 20px;
+        }
+        #main{
+            height: auto;
+            margin-left: 25%;
+            margin-top: 5%;
+        }
+        .box{
+            margin: 4vh;
+            align-items: center;
+            align-content: center;
+        }
+        #result{
+            margin-left:2.5% ;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div id="main">
+    <div class="box">
+        <b>Put your Weight in KG</b>
+        <br>
+        <input id="input" type="number" placeholder="Enter your Weight">
+    </div>
+    <div class="box">
+        Put your Height in <b>CM</b>
+        <br>
+        <input id="input_2" type="number" placeholder="Enter your Height">
+    </div>
+
+    <div class="box">
+        <button onclick="calculate()">Calculate BMI</button>
+    </div>
+
+    <h2 id="result">Enter Your Detail And Calculate Your <b>BMI</b></h2>
+</div>
+    
+</body>
+
+<script>
+    function calculate() {
+
+        let weight = document.getElementById("input").value
+        let height = document.getElementById("input_2").value
+        let result = document.querySelector("h2")
+    
+    
+        if (weight && height) {
+            
+            let BMI = (weight) / (height * height) * 10000
+            let res = BMI.toFixed(2)
+    
+            if (res >= 30) {
+                result.innerText = `Your BMI is ${res}, Which means You are Obese`
+            }
+            else if (res >= 25 && res <= 29.9) {
+                result.innerText = `Your BMI is ${res}, Which means You are OverWeight`
+            }
+            else if (res >= 18.5 && res <= 24.9) {
+                result.innerText = `Your BMI is ${res}, Which means You are Normal Weight`
+            }
+            else if (res <= 18.4) {
+                result.innerText = `Your BMI is ${res}, Which means You are UnderWeight`
+            }
+    
+        }
+        else {
+            result.innerText = ("Enter Both Values")
+            
+        }
+    }
+</script>
+
+</html>
