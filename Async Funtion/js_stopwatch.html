@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch ⏱</title>
+
+    <style>
+
+        /* Add a transition effect for mainbox background */
+        #mainbox {
+            width: 90%;
+            max-width: 400px; /* Set a maximum width for larger screens */
+            margin: auto;
+            padding: 20px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            border-radius: 5px;
+            transition: background-color 0.5s ease;
+            background-color: #ffffff; /* Default background color */
+        }
+
+        /* Change background color when hovered over mainbox */
+        #mainbox:hover {
+            background-color: #f7f7f7; /* New background color on hover */
+        }
+        
+
+
+
+    /* #mainbox {
+        width: 90%;
+        max-width: 400px; /* Set a maximum width for larger screens */
+        /* margin: auto;
+        padding: 20px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        border-radius: 5px; 
+    } 
+    */
+
+    /* Add a media query for smaller screens */
+    @media screen and (max-width: 600px) {
+        #mainbox {
+            width: 95%;
+        }
+    }
+
+    .head {
+        display: flex;
+        justify-content: center;
+        box-shadow: rgba(60, 24, 119, 0.05) 0px 0px 0px 1px;
+    }
+    
+
+    .input {
+        margin: 20px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .button {
+        margin: 20px;
+        display: flex;
+        justify-content: center;
+        padding: auto;
+    }
+
+    button {
+        margin: auto;
+        background-color: white;
+        color: black;
+        border-radius: 5px;
+        padding: 5px;
+        transition: background-color 0.3s ease; /* Adding transition for smooth color change */
+
+        border-color: green;
+    }
+
+    /* Colorful hover effect for buttons */
+    button:hover {
+                background-color: #4CAF50; /* Change to your desired hover color */
+                color: white; /* Change text color on hover if needed */
+            }
+
+    /* Different colors for each button */
+    .start-btn {
+            background-color: #4CAF50; /* Green */
+        }
+
+        .stop-btn {
+            background-color: #f44336; /* Red */
+        }
+
+        .reset-btn {
+            background-color: #008CBA; /* Blue */
+        }
+
+        /* Colorful hover effect for buttons */
+        .start-btn:hover {
+            background-color: #66bb6a; /* Light green on hover */
+        }
+
+        .stop-btn:hover {
+            background-color: #e57373; /* Light red on hover */
+        }
+
+        .reset-btn:hover {
+            background-color: #64b5f6; /* Light blue on hover */
+        }
+    
+    input {
+        width: 50px;
+        text-align: center;
+        margin-right: auto;
+    }
+
+
+    /* Add a transition effect for h1 background */
+    .head h1 {
+            background-color: #fff; /* Default background color */
+            color: transparent;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-position 8s linear;
+            background-size: 600% 100%;
+            background-image: linear-gradient(to right, #4CAF50, #f44336, #2196F3, #FFEB3B, #FF9800, #9C27B0, #00BCD4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: gradient-slide 8s infinite linear;
+        }
+
+        @keyframes gradient-slide {
+            0% { background-position: 100%; }
+            100% { background-position: -500%; }
+        }
+
+        button {
+            margin: auto;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            cursor: pointer;
+            transition: background-position 0.5s ease;
+            background-size: 600% 100%;
+            background-image: linear-gradient(to right, #4CAF50, #f44336, #2196F3, #FFEB3B, #FF9800, #9C27B0, #00BCD4);
+        }
+
+        /* Hover effect for buttons */
+        button:hover {
+            background-position: -500%;
+        }
+
+    /* Adjust input width for smaller screens */
+    @media screen and (max-width: 400px) {
+        input {
+            width: 40px;
+        }
+    }
+
+
+
+    </style>
+
+
+</head>
+<body>
+    <div id="mainbox">
+
+
+        <div class="head">
+            <h1>StopWatch </h1>
+        </div>
+        <div class="input">
+            <label>Hours:</label>
+        <input type="number" id="hours" min="0" value="0">
+        <label>Minutes:</label>
+        <input type="number" id="minutes" min="0" value="0">
+        <label>Seconds:</label>
+        <input type="number" id="seconds" min="0" value="0">
+        </div>
+        <div class="button">
+            <button class="start-btn"  onclick="start()">Start</button>
+            <button class="stop-btn" onclick="stop()">Stop</button>
+            <button class="reset-btn" onclick="resetbtn()">Reset</button>
+        </div>
+
+</div>
+
+</body>
+</html>
+
+<script>
+
+let totalseconds;
+let id;
+
+function start(){
+
+    clearInterval(id)
+    totalseconds = Number(document.getElementById("hours").value)*3600 + 
+    Number(document.getElementById("minutes").value)*60+
+    Number(document.getElementById("seconds").value)
+    
+
+
+    id = setInterval(UpdateTimer,1000)
+    
+}
+
+
+function UpdateTimer(){
+    
+
+    let hours = Math.floor(totalseconds / 3600)
+    let minutes = Math.floor((totalseconds % 3600) /60)
+    let seconds = totalseconds % 60
+
+    document.getElementById("hours").value = hours;
+    document.getElementById("minutes").value = minutes;
+    document.getElementById("seconds").value = seconds;
+
+
+    
+    totalseconds++;
+       
+
+}
+
+
+function stop(){
+
+    totalseconds = Number(document.getElementById("hours").value)*3600 + 
+    Number(document.getElementById("minutes").value)*60+
+    Number(document.getElementById("seconds").value)
+    
+
+    if (totalseconds <= 0){
+        alert("Oops! StopWatch Didn't Start Till Now ⏰");
+        return;
+    }
+    else{
+        clearTimeout(id)
+        alert("StopWatch Stopped! ⏰")
+    }
+
+    
+    
+}
+
+function resetbtn() {
+    clearInterval(id); // Clear the running interval if any
+
+    // Reset the input fields to their initial values (0)
+    document.getElementById("hours").value = '0';
+    document.getElementById("minutes").value = '0';
+    document.getElementById("seconds").value = '0';
+
+    alert("StopWatch Reset ⏰!")
+}
+
+
+</script>

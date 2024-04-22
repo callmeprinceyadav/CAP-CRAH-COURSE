@@ -1,16 +1,16 @@
-*{
+* {
     background-color: white;
-   
+
 }
 
-#main{
+#main {
     width: 100%;
     height: 100%;
-    border: 2px solid green;
+    /* border: 2px solid green; */
     margin: auto;
 }
 
-#logo{
+#logo {
     float: right;
     display: flex;
     align-items: center;
@@ -18,60 +18,124 @@
     background-color: #f5ffff;
     font-family: futura-pt, sans-serif;
     cursor: pointer;
-    
-    
-    
+
+
+
 }
 
-.logoline{
-    border-left: 1px solid black !important;
-    padding: 2px ;
+.logoline {
+    /* border-left: 1px solid black !important; */
+    padding: 2px;
     padding-left: 10px;
     cursor: pointer;
     /* background-color: azure; */
-    
-    
+
+
 }
-#header{
+
+#header {
     width: auto;
     height: 30px;
     /* margin: 2px; */
-    border: 2px solid rgb(5, 3, 3);
-    background-color: #f5ffff;
+    /* border: 2px solid rgb(5, 3, 3); */
+    /* background-color: #f5ffff; */
 }
 
-#navbar{
+#navbar {
     width: auto;
     height: auto;
-    border: 2px solid yellow;
-    background-color: rgb(0, 0, 0);
+    /* border: 2px solid yellow; */
+    background-color: rgb(24, 24, 24);
     display: flex;
-    /* margin: 5px; */
+    justify-content: space-around;
+
 }
 
-#navsection{
+#navsection {
     display: flex;
+
     align-items: center;
-    border: 1px solid red;
-    background-color: black;
-    /* gap: 10px; */
+    
+    background-color: rgb(24, 24, 24);
+    
 }
 
-#navcat{
+#navsection>img {
+    background-color: rgb(24, 24, 24);
+}
+
+#navcat {
     display: flex;
     width: 30%;
     align-items: center;
 }
 
-#gender{
-    border: 2px solid red;
-    padding-left: 10px ;
-    padding-right: 10px ;
+#gender {
+    /* border: 2px solid red; */
+    padding-left: 10px;
+    padding-right: 10px;
+    /* background-color: transparent; */
+    background-color: rgb(24, 24, 24);
 }
 
 
-#category{
-    border: 1px solid orange;
-    height: 5vh;
-    margin: 5px;
+#category {
+    /* border: 5px solid orange; */
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(80, 79, 79);
+
+
+}
+
+.categorydiv {
+    /* border: 2px solid red; */
+    cursor: pointer;
+    width: auto;
+    font-size: large;
+    align-content: center;
+    background-color: rgb(80, 79, 79);
+    color: white;
+    padding: 10px;
+
+
+}
+
+.categorydiv:hover {
+    background-color: rgb(221, 218, 218);
+    color: black;
+}
+
+.navImg {
+    width: 50px;
+    height: 25px;
+    background-color: rgb(80, 79, 79);
+}
+
+#logoImg {
+    margin: 21px 0 0 0;
+    /* width: 10px; */
+    background-color: transparent;
+    color: white;
+}
+
+.search-container {
+    margin: 21px 0 0 0;
+    background-color: rgb(24, 24, 24);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 500vh;
+  }
+  
+  .video-container video {
+    width: 80%;
+    height: 50%;
+  }
+
+#footer{
+    border: 1px solid red;
 }

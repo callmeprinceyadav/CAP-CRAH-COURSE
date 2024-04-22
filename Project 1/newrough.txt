@@ -1,0 +1,9 @@
+Upper Section
+Navbar
+Category
+Offer Section
+Main section:
+             -Sliding Pic
+             -Recent View Product
+             -Top Products
+             - 
