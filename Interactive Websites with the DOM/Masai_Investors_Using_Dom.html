@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MI_Using_DOM</title>
+</head>
+<body>
+
+    <div id="content"></div>
+    
+</body>
+
+<script>
+    let content = document.getElementById("content");
+
+    let h1 = document.createElement("h1");
+    h1.innerHTML = "Stragetic Investors"
+
+    let div = document.createElement("div");
+
+    function h1style(){
+
+        h1.style.textAlign = "center"
+
+    }
+    function divstyle(){
+        h1style()
+        div
+    }
+
+    divstyle()
+
+    content.appendChild(h1);
+    content.appendChild(div);
+
+
+
+
+</script>
+
+</html>

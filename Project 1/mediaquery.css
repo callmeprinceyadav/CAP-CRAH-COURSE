@@ -1,0 +1,285 @@
+/* Media query for smaller screens */
+@media only screen and (max-width: 600px) {
+
+    * {
+        background-color: white;
+
+    }
+
+    #main {
+        width: 100%;
+        height: 100%;
+        /* border: 2px solid green; */
+        margin: auto;
+    }
+
+    #logo {
+        float: right;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background-color: #f5ffff;
+        font-family: futura-pt, sans-serif;
+        cursor: pointer;
+
+
+
+    }
+
+    .logoline {
+        /* border-left: 1px solid black !important; */
+        padding: 2px;
+        padding-left: 10px;
+        cursor: pointer;
+        /* background-color: azure; */
+
+
+    }
+
+    #header {
+        width: auto;
+        height: 30px;
+        font-size: smaller;
+        display: none;
+        /* margin: 2px; */
+        /* border: 2px solid rgb(5, 3, 3); */
+        /* background-color: #f5ffff; */
+    }
+
+    #navbar {
+        width: auto;
+        height: auto;
+        border: 2px solid yellow;
+        background-color: rgb(24, 24, 24);
+        display: flex;
+        justify-content: space-around;
+
+    }
+
+    #navsection {
+        display: flex;
+        align-items: center;
+        background-color: rgb(24, 24, 24);
+
+    }
+
+    #navsection>img {
+        background-color: rgb(24, 24, 24);
+
+    }
+
+    #navcat {
+        display: flex;
+        width: 10%;
+        align-items: center;
+    }
+
+    #gender {
+        /* border: 2px solid red; */
+        padding-left: 10px;
+        padding-right: 10px;
+        /* background-color: transparent; */
+        background-color: rgb(24, 24, 24);
+    }
+
+
+    #category {
+        /* border: 5px solid orange; */
+        height: auto;
+        display: flex;
+        justify-content: space-evenly;
+        background-color: rgb(80, 79, 79);
+        flex-wrap: wrap;
+
+
+    }
+
+    .categorydiv {
+        /* border: 2px solid red; */
+        cursor: pointer;
+        align-content: center;
+        background-color: rgb(80, 79, 79);
+        color: white;
+        padding: 10px;
+        font-size: 15px;
+
+
+    }
+
+    .categorydiv:hover {
+        background-color: rgb(221, 218, 218);
+        color: black;
+    }
+
+    .navImg {
+        width: 50px;
+        height: 25px;
+        background-color: rgb(80, 79, 79);
+    }
+
+    #logoImg {
+        margin: 21px 0 0 0;
+        /* width: 10px; */
+        background-color: transparent;
+        color: white;
+    }
+
+    .search-container {
+        margin: 21px 0 0 0;
+        background-color: rgb(24, 24, 24);
+    }
+
+    .video-container {
+        position: relative;
+        width: 40%;
+        /* Set the width ratio here */
+        max-width: 200px;
+        margin: 10px auto;
+    }
+
+    .video-container video {
+        width: 100%;
+        height: auto;
+    }
+
+    #catwithimg {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+        text-align: center;
+
+
+    }
+
+    .catwithimgdiv {
+        font-size: 15px;
+    }
+
+    .catwithimgdiv>img {
+        width: 100%;
+        border-radius: 15px;
+
+    }
+
+    .catwithimgdiv h2,
+    .catwithimgdiv h3 {
+        text-align: center;
+        font-size: 10px;
+    }
+
+    #offsection {
+        background-color: #CCFF00;
+        /* Background color for the div */
+        padding: 10px;
+        border-radius: 5px;
+
+    }
+
+    #offsection h2 {
+        font-size: 15px;
+    }
+
+    #offsection h3 {
+        font-size: 12px;
+    }
+
+    #moment {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 10px;
+        padding: 20px;
+        margin: 20px 0 20px 0;
+        /* border: 2px solid red; */
+    }
+
+    .momentimg {
+        width: 100%;
+    }
+
+    .momenttext {
+        text-align: center;
+    }
+
+    .momenttext h2,
+    .momenttext p {
+        text-align: center;
+        font-size: 10px;
+    }
+
+    .momenttext button {
+        padding: 2px;
+        text-align: center;
+        margin: auto;
+        display: inline-block;
+        border: 1px solid black;
+
+    }
+
+    .momenttext button h2 {
+        font-size: 7px;
+    }
+
+    #trend_brand_logo {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 10px;
+    
+    }
+
+    .method{
+        display: flex;
+        justify-content: center;
+    
+    }
+    
+    #socail{
+        display: flex;
+        justify-content: space-evenly;
+        /* padding: 20px; */
+        /* margin: 20px 0 20px 0; */
+        border-right: 1px solid rgb(133, 133, 133);
+    }
+    #payment{
+        display: flex;
+        justify-content: space-evenly;
+        /* padding: 20px; */
+        /* margin: 20px 0 20px 0; */
+        padding-left: 10px;
+        border-left: 1px solid rgb(133, 133, 133);
+    }
+    
+    #payment > img{
+        width: 30px;
+        margin: 5px;
+    }
+    
+    .fa {
+        /* padding: 20px; */
+        font-size: 20px;
+        width: 40px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 50%;
+        align-self: center;
+        margin: 3%;
+      }
+      
+      /* Add a hover effect if you want */
+      .fa:hover {
+        opacity: 0.7;
+      }
+    
+      .fa-snapchat{
+        color: #ffff00;
+      }
+    
+      .fa-instagram{
+        color: rgb(209, 49, 76);
+      }
+    
+      .fa-facebook{
+        color: blue;
+      }
+      
+      
+}

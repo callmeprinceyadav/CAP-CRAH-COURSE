@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="searchar.css">
+    <link rel="stylesheet" href="mediaquery.css">
     <title>ASOS </title>
 </head>
 
@@ -34,13 +36,15 @@
 
         <div id="navbar">
 
-            <!-- <div id="navcat"> -->
 
             <div id="logoImg">
                 <img style="background-color: rgb(24, 24, 24);"
                     src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHN5bWJvbCBpZD0iYSIgdmlld0JveD0iMCAwIDIzIDI0Ij48cGF0aCBkPSJNNS4wNzYgMTIuMDE3YzAtMy44MTQgMi4zMjgtNy41MDkgNi41MjEtNy41MDkgNC4xOTQgMCA2LjUyMiAzLjY5NSA2LjUyMiA3LjUxIDAgMTAuMDk4LTEzLjA0MyAxMC4wOTUtMTMuMDQzIDBabTE3LjkxOC03LjUyMVYuNjAzaC00Ljg3NXYxLjUxNEMxNi4xMjcuNjgzIDEzLjk2Ny4wMTMgMTEuNjMgMGgtLjAzM0wxMS41NjQgMEM4Ljc0Mi4wMTYgNi4xNzguOTg4IDMuODU3IDMuMTEgMi41OCA0LjI5MSAxLjYwNyA1LjYzNS45NjQgNy4xMTQuMzI3IDguNTg4IDAgMTAuMjM5IDAgMTIuMDE1YzAgMS42NTguMjg4IDMuMjExLjg1MyA0LjYxNi41NjYgMS40MDUgMS40MjYgMi43MDUgMi41NiAzLjg2MyAxLjEzNCAxLjE2IDIuNDAxIDIuMDQyIDMuNzY2IDIuNjIgMS4zMzYuNTY1IDIuODA3Ljg1OCA0LjM2OS44N2guMDVsLjA0OS4wMDFjMS41NjItLjAxMyAzLjAzMy0uMzA2IDQuMzY5LS44NzEuNzMtLjMxIDEuNDMzLS43MDcgMi4xMDMtMS4xODd2MS40NTVoNC44NzVWNC40OTZaIi8+PC9zeW1ib2w+PHN5bWJvbCBpZD0iYiIgdmlld0JveD0iMCAwIDU3IDI0Ij48cGF0aCBkPSJNNTAuOTY0IDE5LjMxNmMtMS4wMTggMS4wMDktMy40OTUgMS40MDUtNS4yODIuMjUxLTEuMDYtLjY4NC0xLjgwMS0xLjkxMy0xLjc5OC0zLjE5OGwtNC41NTktLjAwMmMuNDk4LTEuMzM1Ljc1LTIuNzk4Ljc1LTQuMzUyIDAtLjM0OC0uMDEyLS42OS0uMDM3LTEuMDI4LjMuMzc2LjY1MS43MjEgMS4wNTggMS4wMjIgMi40OTUgMS44MzMgNS42NSAxLjcyNiA4LjQwNSAyLjg2Ny42NDQuMjY3IDEuMjgzLjYxOSAxLjcwNSAxLjE4Ni44NiAxLjE1OS44MDYgMi4yMTUtLjI0MiAzLjI1NFptLTI5LjAwNy03LjI5OWMwLTMuODE0IDIuMzI4LTcuNTEgNi41MjEtNy41MVMzNSA4LjIwNCAzNSAxMi4wMThjMCAxMC4xLTEzLjA0MiAxMC4wOTYtMTMuMDQyIDBabS02LjEzNi0uMDAzYy0yLjQ5NS0xLjgzMy01LjY1LTEuNzI1LTguNDA1LTIuODY2LS42NDUtLjI2Ny0xLjI4NC0uNjItMS43MDUtMS4xODctLjcwMy0uOTQ2LS41OTMtMi40MjcuMjQxLTMuMjUzIDEuMDE1LTEuMDA2IDMuNDkyLTEuNDA4IDUuMjgyLS4yNTIgMS4wNi42ODUgMS44MDIgMS45MTQgMS43OTggMy4xOThsNC41OTYuMDAyYy0uNDk0IDEuMzMzLS43NDcgMi43OTgtLjc0NyA0LjM1OSAwIC4zNjMuMDE1LjcyMi4wNDIgMS4wNzVhNS42OTIgNS42OTIgMCAwIDAtMS4xMDItMS4wNzZaTS4xOTQgOS41NDhhNS43MzMgNS43MzMgMCAwIDAgMS45IDIuNDY2YzIuNDk1IDEuODMzIDUuNjUgMS43MjUgOC40MDUgMi44NjcuNjQ1LjI2NyAxLjI4NC42MTggMS43MDUgMS4xODYuNzAzLjk0Ni41OTMgMi40MjctLjI0MiAzLjI1My0xLjAxNyAxLjAxLTMuNDk1IDEuNDA2LTUuMjgxLjI1Mi0xLjA2LS42ODUtMS44MDItMS45MTMtMS43OTgtMy4xOThsLTQuNjg5LS4wMDJtMCAyLjI3OGMuNDk0IDEuMzkxIDEuMzc1IDIuNjQgMi41MzIgMy41MjYgMi4xNDkgMS42NDcgNS4wMDggMS45OCA3LjY4MyAxLjc2NSAxLjY0OC0uMTMyIDMuMzE3LS40NjQgNC43NDUtMS4zMTcgMS43ODUtMS4wNjcgMi44MzYtMy4wMiAzLjAxNi01LjA0M2ExMi4xMiAxMi4xMiAwIDAgMCAyLjEyNCAyLjkxM2MxLjEzNCAxLjE2IDIuNDAyIDIuMDQyIDMuNzY2IDIuNjIgMS4zMzYuNTY1IDIuODA3Ljg1OCA0LjM2OS44N3YuMDAxaC4wOTljMS41NjItLjAxMyAzLjAzMy0uMzA2IDQuMzY4LS44NzEgMS4zNjUtLjU3OCAyLjYzMy0xLjQ2IDMuNzY2LTIuNjJhMTIuMDc4IDEyLjA3OCAwIDAgMCAyLjIwNy0zLjA3NWMuMzM3IDEuODcyIDEuMzcgMy42MTIgMi44NTggNC43NTMgMi4xNSAxLjY0NyA1LjAwOCAxLjk4IDcuNjgzIDEuNzY1IDIuMDc4LS4xNjggMy4yNi0uNDMgNC43NDYtMS4zMTggMy42Mi0yLjE2MyA0LjIyLTcuOTc1LjY2Ni0xMC42MS0yLjQ5NS0xLjgzMi01LjY1LTEuNzI1LTguNDA1LTIuODY2LS42NDUtLjI2Ny0xLjI4NC0uNjE5LTEuNzA1LTEuMTg2LS43MDItLjk0Ny0uNTkyLTIuNDI3LjI0Mi0zLjI1NCAxLjAxNS0xLjAwNiAzLjQ5Mi0xLjQwOCA1LjI4Mi0uMjUyIDEuMDYuNjg1IDEuODAxIDEuOTE0IDEuNzk4IDMuMTk4bDUuMTMuMDAzYy0uMDg1LTIuMjU4LTEuMjA4LTQuNDUyLTIuOTczLTUuODA1QzUyLjA0LjIgNDkuMTgyLS4xMzMgNDYuNTA4LjA4MiA0NC44Ni4yMTUgNDMuMTkuNTQ3IDQxLjc2MiAxLjRjLTEuNzc4IDEuMDYyLTIuODE1IDIuOTgtMy4wMSA0Ljk3LS42MjUtMS4xODgtMS40NzMtMi4yOC0yLjUzMy0zLjI2QzMzLjg5OC45ODcgMzEuMzM0LjAxNSAyOC41MSAwaC0uMDY2Yy0yLjgyMi4wMTYtNS4zODYuOTg4LTcuNzA3IDMuMTEtMS4xNDYgMS4wNi0yLjA0NCAyLjI0OS0yLjY4MSAzLjU1LS4zMjctMS44OTMtMS4zNjUtMy42NTYtMi44NjgtNC44MDhDMTMuMDQuMjA1IDEwLjE4MS0uMTI4IDcuNTA2LjA4NyA1Ljg1OC4yMiA0LjE5LjU1IDIuNzYgMS40MDUgMS41NTIgMi4xMjcuNjg2IDMuMjQ0LjE5NCA0LjUxIi8+PC9zeW1ib2w+PHVzZSBocmVmPSIjYSIgd2lkdGg9IjIzIi8+PHVzZSBocmVmPSIjYiIgeD0iMjIuOCIgd2lkdGg9IjU3Ii8+PC9zdmc+"
                     style="color: white;background-color: rgb(173, 167, 167);">
             </div>
+
+
+
             <div id="gender">
                 <h2 style="background-color: rgb(24, 24, 24);color: white;">WOMEN</h2>
             </div>
@@ -48,19 +52,20 @@
                 <h2 style="background-color: rgb(24, 24, 24);color: white;">MEN</h2>
             </div>
 
-            <!-- </div> -->
 
-            <!-- <div id="navsection"> -->
+
+
             <div class="search-container">
                 <form action="/search" method="GET">
                     <input type="text" placeholder="Search..." name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
-            <!-- </div> -->
+
 
             <div id="navsection">
                 <img src="https://www.svgrepo.com/show/105517/user-icon.svg" alt="user logo" class="navImg">
+                
             </div>
             <div id="navsection">
                 <img src="https://www.svgrepo.com/show/447850/wishlist.svg" alt="user logo" class="navImg">
@@ -96,14 +101,227 @@
                 </video>
             </div>
 
+
+            <div id="catwithimg">
+
+                <div class="catwithimgdiv">
+                    <img src="https://content.asos-media.com/-/media/homepages/ww/2024/april/15-gbl/2024_homepage_moment_ww_870x1110_wk33_no-copy.jpg"
+                        alt="adidas shoes" class="catwithimgimg">
+                    <div class="catwithimgtext">
+                        <h2>BEST DRESSED</h2>
+                        <p>Whatever The Ocassion</p>
+                    </div>
+                </div>
+
+                <div class="catwithimgdiv">
+                    <img src="https://content.asos-media.com/-/media/homepages/ww/2024/april/15-gbl/cats/ww_global_barbour_moment_870x1110.jpg"
+                        alt="adidas shoes" class="catwithimgimg">
+                    <div class="catwithimgtext">
+                        <h2>BARBOUR | ASOS</h2>
+                        <p>Modern British Classic</p>
+                    </div>
+                </div>
+
+                <div class="catwithimgdiv">
+                    <img src="https://content.asos-media.com/-/media/homepages/ww/2024/april/15-gbl/132338705-870x1110.jpg"
+                        alt="adidas shoes" class="catwithimgimg">
+                    <div class="catwithimgtext">
+                        <h2>CALVIN KLEIN</h2>
+                        <p>Serious Add-to-baskets vibes</p>
+                    </div>
+                </div>
+
+                <div class="catwithimgdiv">
+                    <img src="https://content.asos-media.com/-/media/homepages/ww/2024/april/15-gbl/cats/ww_global_inkt_list_moment_870x1110.jpg"
+                        alt="adidas shoes" class="catwithimgimg">
+                    <div class="catwithimgtext">
+                        <h2>THE INKEY LIST</h2>
+                        <p>Skin wins,incoming </p>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <br><br><br><br><br>
+
+            <div id="offsection">
+                <h2>UP TO 30% OFF</h2>
+                <h2>SUN-READY STUFF!</h2>
+                <h3>Incl. shoes, tees & more</h3>
+                <br>
+                <p>Limited Time Only. Selected Style Marked down as shown.</p>
+
+            </div>
+
+
+            <div id="moment">
+
+                <div class="moment">
+                    <img src="https://content.asos-media.com/-/media/homepages/ww/2024/april/15-gbl/moments/ww_global_topshop_moment_870x1110.jpg"
+                        alt="moment_1" class="momentimg">
+                    <div class="momenttext">
+                        <h2>TOPSHOP</h2>
+                        <p>Your New Spring Wardrobe</p>
+                        <button>
+                            <h2>SHOP NOW</h2>
+                        </button>
+
+                    </div>
+                </div>
+
+
+                <div class="moment">
+                    <img src="https://content.asos-media.com/-/media/homepages/ww/2024/april/15-gbl/moments/ww_global_spring_vacay_moment_870x1110.jpg"
+                        alt="moment_2" class="momentimg">
+                    <div class="momenttext">
+                        <h2>SWEAM & BEACH</h2>
+                        <p>Sunshine Staples</p>
+                        <button>
+                            <h2>SHOP NOW</h2>
+                        </button>
+                    </div>
+
+
+                </div>
+
+
+
+
+            </div>
+
+            <div id="offsection">
+                <h2><span
+                        style="border: 2px solid black;border-radius: 15px;padding: 10px;width: auto;background-color: black;color: white;cursor: pointer;">The
+                        ASOS APP</span></h2>
+                <br>
+                <h2>Notifications on your orders and returns</h2>
+                <h3>App-solutely</h3>
+                <br>
+                <h2><span
+                        style="border: 2px solid black;border-radius: 15px;padding: 15px;width: auto;background-color: black;color: white;cursor: pointer;">DOWNLOAD
+                        NOW</span></h2>
+
+            </div>
+
+            <br>
+            <br>
+
+
+
+            <div id="trending_brand">
+                <h2 style="text-align: center;font-family:  futura-pt, FuturaStd, Helvetica, Arial, sans-serif;">
+                    TRENDING BRANDS</h2>
+
+                <div id="trend_brand_logo">
+                    <div class="trend_brand_logo">
+                        <img src="https://content.asos-media.com/-/media/homepages/unisex/brands-logos/256x256/monkl-hp-logos-256x256.jpg"
+                            alt="monkl" class="trend_brand_img">
+                    </div>
+                    <div class="trend_brand_logo">
+                        <img src="https://content.asos-media.com/-/media/homepages/unisex/brands-logos/256x256/never-fully-dressed-hp-logos-256x256.png"
+                            alt="photo" class="trend_brand_img">
+                    </div>
+                    <div class="trend_brand_logo">
+                        <img src="https://content.asos-media.com/-/media/homepages/unisex/brands-logos/256x256/1x12x---test.png"
+                            alt="photo" class="trend_brand_img">
+                    </div>
+                    <div class="trend_brand_logo">
+                        <img src="https://content.asos-media.com/-/media/homepages/unisex/brands-logos/256x256/reclaimed-vintage-hp-logos-256x256.jpg"
+                            alt="reclaimed" class="trend_brand_img">
+                    </div>
+                    <div class="trend_brand_logo">
+                        <img src="https://content.asos-media.com/-/media/homepages/unisex/brands-logos/256x256/collusion-hp-logos-256x256.jpg"
+                            alt="collusion" class="trend_brand_img">
+                    </div>
+                    <div class="trend_brand_logo">
+                        <img src="https://content.asos-media.com/-/media/homepages/unisex/brands-logos/256x256/weekday-hp-logos-256x256.jpg"
+                            alt="weekday" class="trend_brand_img">
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+            <hr>
+
         </div>
 
-        <div id="footer">
+        <div class="method">
 
-            <h2>HELP & INFORMATION</h2>
+            <div id="socail">
+                <a href="https://www.facebook.com/ASOS/" class="fa fa-facebook"></a>
+                <a href="https://www.facebook.com/ASOS/" class="fa fa-instagram"></a>
+                <a href="https://www.snapchat.com/add/asosfashion" class="fa fa-snapchat"></a>
+            </div>
+            <div id="payment">
+                <img src="https://images.asos-media.com/navigation/visa-png"/>
+                <img src="https://images.asos-media.com/navigation/mastercard-png"/>
+                <img src="https://images.asos-media.com/navigation/pay-pal-png"/>
+                <img src="https://images.asos-media.com/navigation/american-express-png"/>
+                <img src="https://images.asos-media.com/navigation/visa-electron-png"/>
+            </div>
 
         </div>
 
+
+        <footer class="footer">
+
+            <div class="container">
+
+                <div class="footer-col">
+                    <h3>HELP & INFORMATION</h3>
+
+                    <li>Help</li>
+                    <li>Track order</li>
+                    <li>Delivery & returns</li>
+                    <li>Sitemap</li>
+
+                </div>
+
+
+                <div class="footer-col">
+                    <h3>ABOUT US</h3>
+
+                    <li>About Us</li>
+                    <li>Careers at Asos</li>
+                    <li>Corporate Responsibility</li>
+                    <li>Investor's Site</li>
+
+                </div>
+
+                <div class="footer-col">
+                    <h3>MORE FROM ASOS</h3>
+
+                    <li>Mobile & Asos Apps</li>
+                    <li>ASOS Marketplace</li>
+                    <li>Gift Vouchers</li>
+                    <li>Black Friday</li>
+                    <li>ASOS x Thrift+</li>
+                    <li>Discover the ASOS Credit Card</li>
+                    <li>Help Improve the ASOS Website</li>
+
+                </div>
+
+
+                <div class="footer-col">
+                    <h3>SHOPPING FROM</h3>
+
+                    <li>You'r in <span></span><span>| <h4>CHANGE</h4></span></li>
+                    <li>Some Of Our International Sites</li>
+                    <li>Gift Vouchers</li>
+                    <li>Black Friday</li>
+
+
+                </div>
+
+
+
+
+            </div>
+
+        </footer>
 
     </div>
 

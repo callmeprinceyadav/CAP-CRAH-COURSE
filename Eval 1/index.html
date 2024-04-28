@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Employee Management System</h1>
+        <div class="filter">
+            <label for="department-filter">Filter By Department:</label>
+            <select id="department-filter">
+                <option value="">---Select Department---</option>
+                <option value="hr">Hr</option>
+                <option value="finance">Finance</option>
+                <option value="marketing">Marketing</option>
+                <option value="engineering">Engineering</option>
+                <option value="operations">Operations</option>
+            </select>
+
+            <label for="gender-filter">Filter By Gender:</label>
+            <select id="gender-filter">
+                <option value="">---Select Gender---</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+
+            <label for="sort-order">Sort By Salary</label>
+            <select id="sort-order">
+                <option value="">---Select Order---</option>
+                <option value="low">Low To High</option>
+                <option value="high">High to Low</option>
+            </select>
+
+        </div>
+
+        <table id="employee-table">
+            <thead>
+                <tr>
+                    <th>S.no</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Department</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+
+            <tbody id="employee-list">
+
+            </tbody>
+
+        </table>
+
+        <div class="pagination">
+            <button id="prev-btn">Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const ApiUrl = "https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-employees"
+
+            let currentPage = 1;
+            let currentLimit = 10;
+            let currentfilterBy = "";
+            let currentfiltervalue = "";
+            let currentsortOrder = "";
+
+            const departmentFilter = document.getElementById('department-filter');
+            const genderFilter = document.getElementById('gender-filter');
+            const sortBy = document.getElementById('sort-order');
+            const employeeList = document.getElementById('employee-list');
+            const employeeTable = document.getElementById('employee-table');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+           
+            function fetchData() {
+                const url = `${ApiUrl}?page=${currentPage}&limit=${currentLimit}&filterBy=${currentfilterBy}&filterValue=${currentfiltervalue}&sort=${currentsortOrder}`;
+
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        displayData(data);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+            }
+
+            function displayData(response) {
+                const data = response.data;
+                employeeList.innerHTML = '';
+
+                if (Array.isArray(data)) {
+                    data.forEach((employee, index) => {
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td>${employee.name}</td>
+                        <td>${employee.gender}</td>
+                        <td>${employee.department}</td>
+                        <td>${employee.salary}</td>
+                        `;
+                        employeeList.appendChild(tr);
+                    });
+                } else {
+                    console.error("Couldn't find employee", response);
+                }
+            }
+
+            departmentFilter.addEventListener("change", function () {
+                currentfilterBy = "department";
+                currentfiltervalue = departmentFilter.value;
+                fetchData();
+            });
+
+            genderFilter.addEventListener("change", function () {
+                currentfilterBy = "gender";
+                currentfiltervalue = genderFilter.value;
+                fetchData();
+            });
+
+            sortBy.addEventListener("change", function () {
+                currentsortOrder = this.value;
+                fetchData();
+            });
+
+            prevBtn.addEventListener("click", function () {
+                if (currentPage > 1) {
+                    currentPage--;
+                    fetchData();
+                }
+            });
+
+            nextBtn.addEventListener("click", function () {
+                currentPage++;
+                fetchData();
+            });
+
+            fetchData();
+
+        });
+    </script>
+
+</body>
+
+</html>
