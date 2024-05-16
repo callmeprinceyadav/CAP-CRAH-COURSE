@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Information</title>
+    <style>
+        /* CSS styles here */
+    </style>
+</head>
+<body>
+    <div id="school-info">
+        <!-- Data will be displayed here -->
+    </div>
+    <script>
+        const school = {
+          name: "XYZ School",
+          establishYear: 1990,
+          departments: {
+            math: { teachers: 5, students: 150 },
+            science: { teachers: 4, students: 120 },
+            history: { teachers: 3, students: 100 },
+            english: { teachers: 4, students: 130 },
+          },
+          courses: ["math", "science", "history", "english"],
+          students: [
+            {
+              name: "Alice",
+              className: "Grade 5",
+              scores: { math: 95, science: 88, history: 85, english: 92 },
+            },
+            {
+              name: "Bob",
+              className: "Grade 4",
+              scores: { math: 80, science: 78, history: 92, english: 85 },
+            },
+            {
+              name: "Charlie",
+              className: "Grade 5",
+              scores: { math: 88, science: 90, history: 78, english: 88 },
+            },
+            {
+              name: "Diana",
+              className: "Grade 4",
+              scores: { math: 92, science: 85, history: 88, english: 90 },
+            },
+          ],
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const schoolInfoDiv = document.getElementById('school-info');
+            
+            // Problem 10: countCalculation
+            function countCalculation(school) {
+                const {
+                    departments: {
+                        math: { teachers: mathTeachersCount, students: mathStudentsCount },
+                        history: { teachers: historyTeachersCount, students: historyStudentsCount },
+                    },
+                } = school;
+                return { mathTeachersCount, historyTeachersCount, mathStudentsCount, historyStudentsCount };
+            }
+            const countCalculationResult = countCalculation(school);
+            const countCalculationDiv = document.createElement('div');
+            countCalculationDiv.textContent = `Math Teachers Count: ${countCalculationResult.mathTeachersCount}, 
+                                               History Teachers Count: ${countCalculationResult.historyTeachersCount}, 
+                                               Math Students Count: ${countCalculationResult.mathStudentsCount}, 
+                                               History Students Count: ${countCalculationResult.historyStudentsCount}`;
+            schoolInfoDiv.appendChild(countCalculationDiv);
+
+            // Problem 11: findTopStudent
+            function findTopStudent(school, courseName) {
+                let topStudent = school.students[0];
+                for (const student of school.students) {
+                    if (student.scores[courseName] > topStudent.scores[courseName]) {
+                        topStudent = student;
+                    }
+                }
+                return topStudent;
+            }
+            const topMathStudent = findTopStudent(school, 'math');
+            const topMathStudentDiv = document.createElement('div');
+            topMathStudentDiv.textContent = `Top Math Student: ${topMathStudent.name}, ${topMathStudent.className}`;
+            schoolInfoDiv.appendChild(topMathStudentDiv);
+
+            // Problem 12: addNewDept
+            function addNewDept(school, newDepartment) {
+                const updatedDepartments = { ...school.departments, ...newDepartment };
+                return { ...school, departments: updatedDepartments };
+            }
+            const newDepartment = {
+                art: { teachers: 2, students: 50 }
+            };
+            const updatedSchool = addNewDept(school, newDepartment);
+            const addNewDeptDiv = document.createElement('div');
+            addNewDeptDiv.textContent = `Updated Departments: ${JSON.stringify(updatedSchool.departments)}`;
+            schoolInfoDiv.appendChild(addNewDeptDiv);
+
+            // Problem 13: highestStudentCountDepartment
+            function highestStudentCountDepartment(school) {
+                let highestCount = 0;
+                let highestDept = '';
+                for (const [dept, { students }] of Object.entries(school.departments)) {
+                    if (students > highestCount) {
+                        highestCount = students;
+                        highestDept = dept;
+                    }
+                }
+                return highestDept;
+            }
+            const highestStudentCountDept = highestStudentCountDepartment(school);
+            const highestStudentCountDeptDiv = document.createElement('div');
+            highestStudentCountDeptDiv.textContent = `Department with Highest Student Count: ${highestStudentCountDept}`;
+            schoolInfoDiv.appendChild(highestStudentCountDeptDiv);
+
+            // Problem 14: generateGreeting
+            function generateGreeting(name, language = 'English') {
+                const greetings = {
+                    English: `Hello, ${name}!`,
+                    Spanish: `¡Hola, ${name}!`,
+                    French: `Bonjour, ${name}!`,
+                };
+                return greetings[language];
+            }
+            const greetingAlice = generateGreeting("Alice");
+            const greetingBob = generateGreeting("Bob", "Spanish");
+            const greetingCharlie = generateGreeting("Charlie", "French");
+            const generateGreetingDiv = document.createElement('div');
+            generateGreetingDiv.textContent = `Greetings: Alice - ${greetingAlice}, Bob - ${greetingBob}, Charlie - ${greetingCharlie}`;
+            schoolInfoDiv.appendChild(generateGreetingDiv);
+        });
+    </script>
+</body>
+</html>

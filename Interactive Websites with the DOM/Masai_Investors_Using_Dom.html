@@ -1,38 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MI_Using_DOM</title>
 </head>
+
 <body>
 
-    <div id="content"></div>
-    
+
 </body>
 
 <script>
-    let content = document.getElementById("content");
+    // Create heading element
+    const heading = document.createElement('h1');
+    heading.textContent = 'Board Members';
+    heading.style.textAlign = 'center';
+    heading.style.fontSize = '35px';
+    heading.style.fontWeight = '700';
+    heading.style.fontFamily = 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif';
 
-    let h1 = document.createElement("h1");
-    h1.innerHTML = "Stragetic Investors"
+    // Create company logo container
+    const companyLogoContainer = document.createElement('div');
+    companyLogoContainer.id = 'companylogo';
+    companyLogoContainer.style.display = 'flex'
 
-    let div = document.createElement("div");
+    // Create investor container
+    const investorContainer = document.createElement('div');
+    investorContainer.id = 'investor';
+    investorContainer.style.display = 'flex';
 
-    function h1style(){
+    // Function to create investor card
+    function createInvestorCard(imgSrc, name, role, brandLogoSrc) {
+        const investorCard = document.createElement('div');
+        investorCard.classList.add('investor');
+        investorCard.style.width = '25%';
+        investorCard.style.border = '2px solid red'
 
-        h1.style.textAlign = "center"
+        const investorImg = document.createElement('img');
+        investorImg.classList.add('investorfit');
+        investorImg.style.border = '2px solid red'
+        investorImg.style.display = 'inline-block';
+        investorImg.style.margin = '0 auto  '
+        investorImg.src = imgSrc;
+        investorImg.alt = '';
 
+        const investorName = document.createElement('h1');
+        investorName.textContent = name;
+
+
+        const investorRole = document.createElement('h3');
+        investorRole.textContent = role;
+        investorRole.style.textAlign = 'center';
+
+        const brandLogo = document.createElement('img');
+        brandLogo.classList.add('brandlogo');
+        brandLogo.src = brandLogoSrc;
+        brandLogo.style.width = '100%';
+        brandLogo.alt = '';
+
+        investorCard.appendChild(investorImg);
+        investorCard.appendChild(investorName);
+        investorCard.appendChild(investorRole);
+        investorCard.appendChild(brandLogo);
+
+        return investorCard;
     }
-    function divstyle(){
-        h1style()
-        div
-    }
 
-    divstyle()
+    // Append company logos
+    const companyLogos = [
+        'https://www.masaischool.com/images/our-investors/india-q-borderless.svg',
+        'https://www.masaischool.com/images/our-investors/unitus-borderless.svg',
+        'https://www.masaischool.com/images/our-investors/omidyar-borderless.svg'
+    ];
+    companyLogos.forEach(logoSrc => {
+        const companyLogo = document.createElement('div');
+        companyLogo.classList.add('companylogo');
 
-    content.appendChild(h1);
-    content.appendChild(div);
+        const logoImg = document.createElement('img');
+        logoImg.classList.add('companylogofit');
+        logoImg.src = logoSrc;
+        logoImg.alt = '';
+
+        companyLogo.appendChild(logoImg);
+        companyLogoContainer.appendChild(companyLogo);
+    });
+
+    // Append investor cards
+    const investors = [
+        {
+            imgSrc: 'https://masai-website-images.s3.ap-south-1.amazonaws.com/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg',
+            name: 'Vijay Shekhar Sharma',
+            role: 'Founder & CEO',
+            brandLogoSrc: 'https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg'
+        },
+        // Add other investors here...
+        {
+            imgSrc: 'https://masai-website-images.s3.ap-south-1.amazonaws.com/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg',
+            name: 'Vijay Shekhar Sharma',
+            role: 'Founder & CEO',
+            brandLogoSrc: 'https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg'
+        },
+        {
+            imgSrc: 'https://masai-website-images.s3.ap-south-1.amazonaws.com/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg',
+            name: 'Vijay Shekhar Sharma',
+            role: 'Founder & CEO',
+            brandLogoSrc: 'https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg'
+        },
+        {
+            imgSrc: 'https://masai-website-images.s3.ap-south-1.amazonaws.com/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg',
+            name: 'Vijay Shekhar Sharma',
+            role: 'Founder & CEO',
+            brandLogoSrc: 'https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg'
+        }
+    ];
+
+    investors.forEach(investor => {
+        const investorCard = createInvestorCard(investor.imgSrc, investor.name, investor.role, investor.brandLogoSrc);
+        investorContainer.appendChild(investorCard);
+    });
+
+    // Append elements to the document
+    document.body.appendChild(heading);
+    document.body.appendChild(companyLogoContainer);
+    document.body.appendChild(document.createElement('br'));
+    document.body.appendChild(document.createElement('br'));
+    document.body.appendChild(investorContainer);
+
 
 
 

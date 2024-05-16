@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            margin: auto;
+            /* place-items: center; */
+            align-items: center;
+        }
+
+        #container > div > img{
+            width: 50%;
+            
+            display: block;
+            margin: 0 auto;
+    
+        }
+
+        #container > div{
+            flex-wrap: wrap;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+        }
+
+        #container > div > h3{
+            text-align: center;
+            
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <select>
+
+        <option >Categories</option>
+        <option value="electronics">electronics</option>
+        <option value="jewelery">jewelery</option>
+        <option value="men's clothing">men's clothing</option>
+        <option value="women's clothing">women's clothing</option>
+
+    </select>
+
+    <div id="container">
+
+    </div>
+    
+</body>
+<script>
+
+    let container = document.querySelector("#container");
+
+    let selectCategory = document.querySelector("select")
+
+    function GetData(URL){
+
+        fetch(URL)
+        .then(function(res){
+             res = res.json()
+             return res
+         }).then(function(res){
+             console.log(res)
+             ShowData(res)
+         })
+        }
+
+        function ShowData(arr){
+
+            container.innerHTML  = null
+
+            arr.forEach(function(ele,i){
+
+                let box = document.createElement("div");
+                let h3 = document.createElement("h3");
+                h3.innerText = ele.title
+            
+
+                let img = document.createElement("img");
+                img.src = ele.image;
+
+                let p = document.createElement("p");
+                p.innerText = ele.description;
+
+                box.append(img,h3);
+
+                container.append(box);
+
+                
+            })
+
+
+        }
+
+    function handlecategory(){
+        let categoryvalue = selectCategory.value
+        console.log(categoryvalue);
+        if (categoryvalue == null){
+            GetData("https://fakestoreapi.com/products")
+            return
+        }else{
+            GetData(`https://fakestoreapi.com/products/category/${categoryvalue}`)
+        }
+        
+    }
+
+
+    selectCategory.addEventListener("change", handlecategory)
+    
+
+    GetData("https://fakestoreapi.com/products")
+
+</script>
+</html>

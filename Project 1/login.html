@@ -3,25 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asos - Sign In</title>
+    <title>ASOS | Sign in</title>
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <style>
 
         *{
-            padding: 20px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body{
+            padding: 50px;
+            background-color: rgb(238, 238, 238);
         }
 
         #logo {
             display: flex;
             justify-content: center;
-        
+            padding: 20px;
         }
 
+        #fillsection{
+            width: 650px;
+            border: 1px solid #ccc;
+            height: auto;
+            margin: auto;
+            background-color: white;
+        }
 
+        #head{
+            display: flex;
+            width: 100%;
+            height: 50px;
+            border-bottom: 2px solid #ccc;
+        }
+
+        #join,
+        #signin{
+            width: 50%;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        /* Styling for the link inside h3 */
+        h3 a {
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit color from parent (h3) */
+        }
+
+        #signin{
+            border-left: 2px solid #585656;
+            border-bottom: 2px solid blue;
+        }
+
+        #fillsection > div{
+            width: 100%;
+            text-align: center;
+        }
+
+        #details{
+            margin: 20px;
+        }
+
+        h3{
+            font-weight: 500;
+            cursor: pointer;
+            color: #585656;
+        }
+
+        p{
+            font-size: 20px;
+            color: #585656;
+        }
+
+        input{
+            width: 50%;
+            padding: 15px;
+            margin-top: -30px;
+        }
+
+        button{
+            width: 55%;
+            padding: 20px;
+            font-weight: 700;
+            color: white;
+            background-color: black;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #585656;
+        }
+
+        #socialsignin {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: auto;
+            /* border: 2px solid red; */
+            /* padding: 10px; */
+        }
+
+        #socialsignin div {
+            border: 2px solid #c0baba;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 20px;
+            color: #585656;
+            border-radius: 2px;
+            padding: 10px;
+        }
+
+        #socialsignin div:hover{
+            color: #c2b8b8;
+        }
 
     </style>
-
-
 </head>
 <body>
 
@@ -31,7 +129,40 @@
             <img src="https://my.asos.com/Content/images/asos-logo-2022-93x28.png"/>
         </div>
 
+        <div id="fillsection">
+            
+            <div id="head">
+                <div id="join">
+                    <h3><a href="signup.html">JOIN</a></h3>
+                </div>
+                <div id="signin"><h3>SIGN IN</h3></div>
+            </div>
+
+            <div id="details">
+                <p>Email Address: <br></p>
+                <input type="text" name="email" id="email" placeholder="Enter Email Address"> <br> <br>
+
+                <p>Password: <br></p>
+                <input type="text" name="password" id="password" placeholder="Enter Password"> <br> <br>
+                
+                <button>SIGN IN</button>
+                <p style="color: black;font-size: 15px;cursor: pointer;margin: 20px;">Forget Password ?</p>
+
+                <h4 style="font-size: 20px;color: rgb(59, 57, 57);">OR SIGN IN WITH  ...</h4>
+            </div>
+
+            <div id="socialsignin">
+                <div><i style="color: rgb(194, 39, 65);margin-right: 10px;" class="fab fa-google"></i> GOOGLE</div>
+                <div><i style="color: rgb(14, 13, 13);margin-right: 10px;" class="fab fa-apple"></i> APPLE</div>
+                <div><i style="color: blue;margin-right: 10px;" class="fab fa-facebook"></i> FACEBOOK</div>
+                
+            </div>
+            <p style="color: black;font-size: 15px;cursor: pointer;margin: 20px;text-align: center;">Where Has Twitter Gone ?</p>
+        </div>
     </div>
+
+    <p style="text-align: center;font-size: 15px;cursor: pointer;">Privacy policy | <span >Terms & Condition</span></p>
+    
     
 </body>
 </html>
