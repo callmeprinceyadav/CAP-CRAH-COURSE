@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Clothing</title>
+    <style>
+        /* Add your CSS styling here */
+        .main-content {
+            display: flex;
+        }
+        .sorting {
+            /* Styling for the sorting feature */
+            width: 200px; /* Adjust width as needed */
+            /* Add more styling as needed */
+        }
+        .products {
+            /* Styling for the products section */
+            flex-grow: 1;
+            /* Add more styling as needed */
+        }
+        /* Add more CSS styling as needed */
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <div class="sorting">
+            <!-- Sorting options will go here -->
+            <label for="sort">Sort by:</label>
+            <select id="sort" onchange="sortProducts()">
+                <option value="price-low-to-high">Price Low to High</option>
+                <option value="price-high-to-low">Price High to Low</option>
+                <option value="rating-high-to-low">Rating High to Low</option>
+            </select>
+        </div>
+        <div class="products">
+            <!-- Product display section -->
+            <div class="product">
+                <h2>Name of Product 1</h2>
+                <p>Price: $10.00</p>
+                <p>Rating: 4.5</p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h2>Name of Product 2</h2>
+                <p>Price: $20.00</p>
+                <p>Rating: 4.2</p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+            </div>
+            <!-- Add more product sections as needed -->
+        </div>
+    </div>
+
+    <!-- Cart section -->
+    <div class="cart">
+        <h2>Shopping Cart</h2>
+        <ul id="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </ul>
+        <p>Total: $<span id="cart-total">0.00</span></p>
+    </div>
+
+    <script>
+        // Function to add products to the cart
+        function addToCart(button) {
+            const product = button.parentNode;
+            const name = product.querySelector('h2').textContent;
+            const price = parseFloat(product.querySelector('p:nth-of-type(1)').textContent.split(': ')[1]);
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            const li = document.createElement('li');
+            li.textContent = `${name} - $${price.toFixed(2)}`;
+            cartItems.appendChild(li);
+            const currentTotal = parseFloat(cartTotal.textContent);
+            cartTotal.textContent = (currentTotal + price).toFixed(2);
+        }
+
+        // Function to sort products
+        function sortProducts() {
+            const sortSelect = document.getElementById('sort');
+            const sortBy = sortSelect.value;
+            const productsContainer = document.querySelector('.products');
+            const sortedProducts = [...productsContainer.querySelectorAll('.product')];
+
+            sortedProducts.sort((a, b) => {
+                const priceA = parseFloat(a.querySelector('p:nth-of-type(1)').textContent.split(': ')[1]);
+                const priceB = parseFloat(b.querySelector('p:nth-of-type(1)').textContent.split(': ')[1]);
+                switch (sortBy) {
+                    case 'price-low-to-high':
+                        return priceA - priceB;
+                    case 'price-high-to-low':
+                        return priceB - priceA;
+                    case 'rating-high-to-low':
+                        // If you have rating information, add rating comparison logic here
+                        return 0; // Placeholder for now
+                    default:
+                        return 0; // Default to no sorting
+                }
+            });
+
+            // Rearrange products in the container based on sorting
+            sortedProducts.forEach(product => {
+                productsContainer.appendChild(product);
+            });
+        }
+
+        // Initial sort of products
+        sortProducts();
+    </script>
+</body>
+</html>
