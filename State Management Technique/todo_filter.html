@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function TodoApp() {
+      const [todos, setTodos] = React.useState([]);
+      const [filter, setFilter] = React.useState('All');
+      const [newTodo, setNewTodo] = React.useState('');
+
+      const addTodo = () => {
+        if (newTodo.trim() !== '') {
+          setTodos([...todos, { text: newTodo, completed: false }]);
+          setNewTodo('');
+        }
+      };
+
+      const toggleTodo = (index) => {
+        const updatedTodos = todos.map((todo, i) =>
+          i === index ? { ...todo, completed: !todo.completed } : todo
+        );
+        setTodos(updatedTodos);
+      };
+
+      const removeTodo = (index) => {
+        const updatedTodos = todos.filter((_, i) => i !== index);
+        setTodos(updatedTodos);
+      };
+
+      const filteredTodos = todos.filter(todo => {
+        if (filter === 'Active') return !todo.completed;
+        if (filter === 'Completed') return todo.completed;
+        return true; // 'All'
+      });
+
+      const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+          addTodo();
+        }
+      };
+
+      return (
+        <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+          <h1>Todo List</h1>
+          <input
+            type="text"
+            value={newTodo}
+            onChange={(e) => setNewTodo(e.target.value)}
+            onKeyPress={handleKeyPress}
+            placeholder="Add a new task"
+            style={{ padding: '10px', fontSize: '16px', width: '300px' }}
+          />
+          <button
+            onClick={addTodo}
+            style={{
+              padding: '10px 20px',
+              fontSize: '16px',
+              marginLeft: '10px',
+              cursor: 'pointer',
+            }}
+          >
+            Add
+          </button>
+          <div style={{ marginTop: '20px' }}>
+            <button onClick={() => setFilter('All')} style={{ marginRight: '10px' }}>
+              All
+            </button>
+            <button onClick={() => setFilter('Active')} style={{ marginRight: '10px' }}>
+              Active
+            </button>
+            <button onClick={() => setFilter('Completed')}>
+              Completed
+            </button>
+          </div>
+          <ul style={{ listStyle: 'none', padding: '0', marginTop: '20px' }}>
+            {filteredTodos.map((todo, index) => (
+              <li key={index} style={{ marginBottom: '10px' }}>
+                <input
+                  type="checkbox"
+                  checked={todo.completed}
+                  onChange={() => toggleTodo(index)}
+                  style={{ marginRight: '10px' }}
+                />
+                <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+                  {todo.text}
+                </span>
+                <button
+                  onClick={() => removeTodo(index)}
+                  style={{
+                    marginLeft: '10px',
+                    padding: '5px 10px',
+                    cursor: 'pointer',
+                  }}
+                >
+                  Remove
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<TodoApp />, document.getElementById('root'));
+  </script>
+</html>

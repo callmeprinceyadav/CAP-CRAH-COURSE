@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Hobbies Form</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function HobbiesForm() {
+      const [hobbies, setHobbies] = React.useState(['']);
+
+      const handleInputChange = (index, event) => {
+        const newHobbies = [...hobbies];
+        newHobbies[index] = event.target.value;
+        setHobbies(newHobbies);
+      };
+
+      const handleAddField = () => {
+        setHobbies([...hobbies, '']);
+      };
+
+      const handleRemoveField = (index) => {
+        if (hobbies.length > 1) {
+          const newHobbies = hobbies.filter((_, i) => i !== index);
+          setHobbies(newHobbies);
+        }
+      };
+
+      const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(hobbies);
+      };
+
+      return (
+        <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+          <h1>Hobbies Form</h1>
+          <form onSubmit={handleSubmit}>
+            {hobbies.map((hobby, index) => (
+              <div key={index} style={{ marginBottom: '10px' }}>
+                <input
+                  type="text"
+                  value={hobby}
+                  onChange={(event) => handleInputChange(index, event)}
+                  placeholder={`Hobby ${index + 1}`}
+                  style={{ padding: '10px', fontSize: '16px', width: '200px' }}
+                />
+                {hobbies.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={() => handleRemoveField(index)}
+                    style={{
+                      marginLeft: '10px',
+                      padding: '10px',
+                      fontSize: '16px',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    Remove
+                  </button>
+                )}
+              </div>
+            ))}
+            <button
+              type="button"
+              onClick={handleAddField}
+              style={{
+                marginBottom: '20px',
+                padding: '10px 20px',
+                fontSize: '16px',
+                cursor: 'pointer',
+              }}
+            >
+              Add Hobby
+            </button>
+            <br />
+            <button
+              type="submit"
+              style={{
+                padding: '10px 20px',
+                fontSize: '16px',
+                cursor: 'pointer',
+              }}
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<HobbiesForm />, document.getElementById('root'));
+  </script>
+</html>
