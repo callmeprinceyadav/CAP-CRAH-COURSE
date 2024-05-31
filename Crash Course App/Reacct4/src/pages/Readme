@@ -1,0 +1,39 @@
+// const [token, setToken] = useState(null);
+//     const [error, setError] = useState(null);
+//     const [loading, setLoading] = useState(false);
+//     const [errorMsg, setErrorMsg] = useState(false);
+
+//     const navigate = useNavigate();
+
+//     useEffect(() => {
+//         if (token) {
+//             navigate("/");
+//         }
+//     }, [token, navigate]);
+
+//     async function fetchandUpdate() {
+//         setLoading(true);
+//         try {
+//             const res = await axios.post(
+//                 "https://reqres.in/api/login",
+//                 { email, password }
+//             );
+//             if (res.data.token) {
+//                 setToken(res.data.token);
+//                 setError(null);
+//                 setLoading(false);
+//                 setErrorMsg(false);
+//             } else {
+//                 setToken(null);
+//                 setError("Invalid response from server");
+//                 setLoading(false);
+//                 setErrorMsg(true);
+//             }
+//         } catch (error) {
+//             console.log(error);
+//             setToken(null);
+//             setError("Login failed. Please check your credentials.");
+//             setLoading(false);
+//             setErrorMsg(true);
+//         }
+//     }
