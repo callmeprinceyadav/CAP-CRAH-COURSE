@@ -1,10 +1,11 @@
-// src/components/Navbar.js
-import React from 'react';
+
 import { Box, Button, Flex, Link, Spacer, Text } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+
 const Navbar = () => {
   const { authState, logout } = useAuth();
+
   return (
     <Box bg="teal.500" p={4}>
       <Flex>
@@ -22,4 +23,5 @@ const Navbar = () => {
     </Box>
   );
 };
+
 export default Navbar;

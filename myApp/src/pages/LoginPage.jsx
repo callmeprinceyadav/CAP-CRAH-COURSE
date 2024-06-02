@@ -4,61 +4,56 @@ import { Box, Input, Button, FormControl, FormLabel, Text } from '@chakra-ui/rea
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
-import LoadingIndiactor from './LoadingIndicator';
+
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false)
-
   const emailRef = useRef();
   const navigate = useNavigate();
   const { login } = useAuth();
+
   useEffect(() => {
     emailRef.current.focus();
   }, []);
-  async function handleSubmit() {
-    setLoading(true)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-        
       const response = await axios.post('https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/login', { email, password });
       login(response.data.token, email);
       navigate('/');
-      setLoading(false)
-
     } catch (err) {
       setError('Invalid email or password');
     }
   };
 
-  if(loading){
-    return <LoadingIndiactor/>
-  }
-
   return (
     <Box maxW="sm" mx="auto" mt={10}>
       <form onSubmit={handleSubmit}>
-        
+        <FormControl id="email" mb={4}>
+          <FormLabel>Email</FormLabel>
           <Input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             ref={emailRef}
-            placeholder="Email"
           />
-        
-        
+        </FormControl>
+        <FormControl id="password" mb={4}>
+          <FormLabel>Password</FormLabel>
           <Input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
           />
-      
-        {error && <Text color="red.500">{error}</Text>}
-        <Button type="submit" colorScheme="red" variant="outline" width="full">Login</Button>
+        </FormControl>
+        {error && <Text color="blue.500">{error}</Text>}
+        <Button type="submit" colorScheme="red" width="full">Login</Button>
       </form>
     </Box>
   );
 };
+
 export default LoginPage;
+  
