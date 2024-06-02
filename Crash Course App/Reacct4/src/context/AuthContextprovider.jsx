@@ -4,7 +4,7 @@ export const AuthContext = createContext()
 
 export default function AuthContextProvider({ children }) {
     const [authDetails, setAuthDetails] = useState({
-        isLoggedin: false,
+        isLoggedin: true,
         token: null
     })
 
@@ -14,7 +14,7 @@ export default function AuthContextProvider({ children }) {
             token: token
         })
     }
-    const Logout = () => {
+    const Logout = (token) => {
         setAuthDetails({
             isLoggedin: false,
             token: null
@@ -22,7 +22,7 @@ export default function AuthContextProvider({ children }) {
     }
 
     return (
-        <AuthContext.Provider value={{ authDetails, Login }}>
+        <AuthContext.Provider value={{ authDetails, Login, Logout }}>
             {children}
         </AuthContext.Provider>
     )

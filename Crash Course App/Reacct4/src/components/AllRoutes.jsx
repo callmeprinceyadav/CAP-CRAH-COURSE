@@ -34,9 +34,9 @@ export default function AllRoutes(){
             <Route path="/contact" element={<PrivateRoute><Contact /></PrivateRoute>} />
             <Route path="/Logout" element={<PrivateRoute><Logout /></PrivateRoute>} />
             <Route path="/Tickets" element={<PrivateRoute><Tickets /></PrivateRoute>} />
-            <Route path="/TicketCreate" element={<PrivateRoute><TicketCreate /></PrivateRoute>} />
-            <Route path="/TicketEdit" element={<PrivateRoute><TicketEdit /></PrivateRoute>} />
-            <Route path="/TicketView" element={<PrivateRoute><TicketView /></PrivateRoute>} />
+            <Route path="/Ticket/create" element={<PrivateRoute><TicketCreate /></PrivateRoute>} />
+            <Route path="/Ticket/edit" element={<PrivateRoute><TicketEdit /></PrivateRoute>} />
+            <Route path="/Ticket/view" element={<PrivateRoute><TicketView /></PrivateRoute>} />
             
         </Routes>
     )

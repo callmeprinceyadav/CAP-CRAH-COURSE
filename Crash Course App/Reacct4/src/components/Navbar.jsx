@@ -30,6 +30,7 @@ export default function Navbar() {
 
     const {Logout} = useContext(AuthContext)
     
+    
 
     return (
         <Flex
